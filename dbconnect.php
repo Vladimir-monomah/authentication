@@ -3,8 +3,8 @@
     header('Content-Type:text/html;charset=utf-8');
 
     $server="localhost";//Имя хоста
-    $username="root";//Имя пользователя БД
-    $password="";//Пароль пользователя
+    $username="mysql";//Имя пользователя БД
+    $password="mysql";//Пароль пользователя
     $database="reg";//Имя БД
 
     //Подключаемся к БД через MySQLi
