@@ -17,7 +17,7 @@
  
         <div id="header">
             <h2>Шапка сайта</h2>
-            <script type="text/javascript" src="/js/script.js"></script>
+            
             <a href="/index.php">Главная</a>
  
             <div id="auth_block">

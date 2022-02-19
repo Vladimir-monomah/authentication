@@ -2,7 +2,7 @@
     //Подключение шапки
     require_once("header.php");
 ?>
-
+<script type="text/javascript" src="/js/script.js"></script>
 <!--Блок вывода сообщений -->
 <div class="block_for_messages">
     <?php

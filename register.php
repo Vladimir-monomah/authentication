@@ -19,7 +19,7 @@
     if(isset($_POST["btn_submit_register"]) && !empty($_POST["btn_submit_register"])){
         
         //Проверяем полученную капчу
-        //Обрезаем пробелы с начала и с конца строки
+        //Удаляем пробелы с начала и с конца строки
         $captcha = trim($_POST["captcha"]);
 
         if(isset($_POST["captcha"]) && !empty($captcha)){
@@ -44,7 +44,7 @@
             // Проверяем если в глобальном массиве $_POST существуют данные отправленные из формы и заключаем переданные данные в обычные переменные.
             if(isset($_POST["first_name"])){
                 
-                //Обрезаем пробелы с начала и с конца строки
+                //Удаляем пробелы с начала и с конца строки
                 $first_name = trim($_POST["first_name"]);
 
                 //Проверяем переменную на пустоту
@@ -79,7 +79,7 @@
             
             if(isset($_POST["last_name"])){
 
-                //Обрезаем пробелы с начала и с конца строки
+                //Удаляем пробелы с начала и с конца строки
                 $last_name = trim($_POST["last_name"]);
 
                 if(!empty($last_name)){
@@ -115,7 +115,7 @@
             
             if(isset($_POST["email"])){
 
-                //Обрезаем пробелы с начала и с конца строки
+                //Удаляем пробелы с начала и с конца строки
                 $email = trim($_POST["email"]);
 
                 if(!empty($email)){
@@ -200,8 +200,37 @@
             
             if(isset($_POST["password"])){
 
-                //Обрезаем пробелы с начала и с конца строки
+                //Удаляем пробелы с начала и с конца строки
                 $password = trim($_POST["password"]);
+
+                //Проверяем, совпадают ли пароли
+                if(isset($_POST["confirm_password"])){
+                //Обрезаем пробелы с начала и с конца строки
+                $confirm_password = trim($_POST["confirm_password"]);
+ 
+                if($confirm_password != $password){
+                // Сохраняем в сессию сообщение об ошибке. 
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Пароли не совпадают</p>";
+         
+                //Возвращаем пользователя на страницу регистрации
+                header("HTTP/1.1 301 Moved Permanently");
+                header("Location: ".$address_site."form_register.php");
+ 
+                //Останавливаем  скрипт
+                exit();
+                }
+ 
+                }else{
+                // Сохраняем в сессию сообщение об ошибке. 
+                $_SESSION["error_messages"] .= "<p class='mesage_error' >Отсутствует поле для повторения пароля</p>";
+     
+                //Возвращаем пользователя на страницу регистрации
+                header("HTTP/1.1 301 Moved Permanently");
+                header("Location: ".$address_site."form_register.php");
+ 
+                //Останавливаем  скрипт
+                exit();
+                }
 
                 if(!empty($password)){
                     $password = htmlspecialchars($password, ENT_QUOTES);

@@ -2,6 +2,7 @@
     //Подключение шапки
     require_once("header.php");
 ?>
+<script type="text/javascript" src="/js/script.js"></script>
 <!-- Блок для вывода сообщений -->
 <div class="block_for_messages">
     <?php
@@ -62,6 +63,14 @@
                             <span id="valid_password_message" class="mesage_error"></span>
                         </td>
                     </tr>
+                    <!--Повторите пароль-->
+                    <tr>
+                            <td> Повторите пароль: </td>
+                            <td>
+                                <input type="password" name="confirm_password" placeholder="минимум 6 символов" required="required" /><br />
+                                <span id="valid_confirm_password_message" class="mesage_error"></span>
+                            </td>
+                        </tr>
                     <tr>
                         <td> Введите капчу: </td>
                         <td>
